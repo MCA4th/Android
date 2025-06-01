@@ -1,0 +1,314 @@
+1. Write a java program to calculate factorial of n.
+
+import java.util.Scanner;
+class main{
+    public static void main(String[]args){
+        Scanner s = new Scanner(System.in);
+        int n;
+        System.out.println("enter a number");
+        n = s.nextInt();
+        int fact = 1;
+        for(int i = 1;i<=n;i++){
+            fact*=i;
+        }
+        System.out.println(fact);
+    }
+}
+
+
+2. Write a java program for fibonacci series
+
+import java.util.Scanner;
+class main{
+    public static void main(String[]args){
+        Scanner s = new Scanner(System.in);
+        int n;
+        int a = 0,b=1;
+        System.out.println("Enter a number");
+        n = s.nextInt();
+        System.out.print(a+","+b);
+        for(int i = 1;i<=(n-2);i++){
+            int next = a+b;
+            a = b;
+            b = next;
+            System.out.print(","+next);
+        }
+    }
+}
+
+
+3. Write a java program to count number digits of an integer
+
+import java.util.Scanner;
+class main{
+    public static void main(String[]args){
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter a number");
+        int n = s.nextInt();
+        n = Math.abs(n);
+        int count = 0;
+        if(n==0){
+            count++;
+        }
+        else{
+            while(n>0){
+                n = n/10;
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+}
+
+
+4. Write a java program to check whether a number is palindrome or not.
+
+import java.util.Scanner;
+class main{
+    public static void main(String[]args){
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter a number");
+        int n = s.nextInt();
+        int rev = 0;
+        int original = n;
+        while(n!=0){
+            int digit = n%10;
+            rev = rev*10+digit;
+            n = n/10;
+        }
+        if(original==rev){
+            System.out.print("palindrome");
+        }
+        else{
+            System.out.println("Not palindrome");
+        }
+    }
+}
+
+
+5. Write simple java program to check whether a number is prime or not.
+
+import java.util.Scanner;
+class main{
+    public static void main(String[]args){
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter a number");
+        int n = s.nextInt();
+        boolean isprime = false;
+        if(n<=1){
+            isprime = false;
+        }
+        else{
+            for(int i = 2;i<=n/2;i++){
+                if(n%i==0){
+                    isprime = true;
+                }
+            }
+        }
+        if(isprime){
+            System.out.println("Not Prime");
+        }
+        else{
+            System.out.println("Prime");
+        }
+    }
+}
+
+
+6. Write simple java program to implement method overloading
+
+import java.util.Scanner;
+class Main{
+    void add(){
+        System.out.println(30+20);
+    }
+    void add(int a,int b){
+        System.out.println(a+b);
+    }
+    public static void main(String[]args){
+       Main obj = new Main();
+       obj.add();
+       obj.add(2,3);
+    }
+}
+
+
+7. Write a java program to implement default constructor or 0 argument constructor.
+
+
+class Main{
+    Main(){
+        System.out.println("Defalut coonstructor is called");
+    }
+    public static void main(String[]args){
+       Main obj = new Main();
+    }
+}
+
+
+8. Write a java program to implement parameterized constructor.
+
+
+class Main{
+    String name;
+    int age;
+    Main(String n,int a){
+        name = n;
+        age = a;
+    }
+    void disply(){
+        System.out.println(name);
+        System.out.println(age);
+    }
+    public static void main(String[]args){
+       Main obj = new Main("Milan",22);
+       obj.disply();
+    }
+}
+
+
+9. Write a java program to implement static members.
+
+public class StaticExample {
+    // Static variable
+    static int count = 0;
+
+    // Static method
+    static void incrementCount() {
+        count++;
+        System.out.println("Count is: " + count);
+    }
+
+    public static void main(String[] args) {
+        // Call static method without creating an object
+        StaticExample.incrementCount(); // Output: Count is: 1
+        StaticExample.incrementCount(); // Output: Count is: 2
+        StaticExample.incrementCount(); // Output: Count is: 3
+    }
+}
+
+
+
+10. Write a java program to implement single inheritance.
+
+class Main{
+    public static void main(String[] args){
+        car obj = new car();
+        obj.start();
+        obj.run();
+    }
+}
+class Engine{
+    void start(){
+        System.out.println("engine Start");
+    }
+}
+class car extends Engine{
+    void run(){
+        System.out.println("Car started");
+    }
+}
+
+
+11. Write a java program to implement method overriding.
+
+class Main{
+    public static void main(String[] args){
+        car obj = new car();
+        obj.run();
+    }
+}
+class Engine{
+    void run(){
+        System.out.println("engine Start");
+    }
+}
+class car extends Engine{
+    void run(){
+        System.out.println("Car started");
+    }
+}
+
+
+12. Write a java program to implement multilevel inheritance.
+
+class Main{
+    public static void main(String[] args){
+        car obj = new car();
+        obj.injected();
+        obj.start();
+        obj.run();
+    }
+}
+class Fuel{
+    void injected(){
+        System.out.println("Fuel injected");
+    }
+}
+class Engine extends Fuel{
+    void start(){
+        System.out.println("Engine started");
+    }
+}
+class car extends Engine{
+    void run(){
+        System.out.println("Car running");
+    }
+} 
+
+
+13. Write a very simple java program to implement interface.
+
+// Define the interface
+interface Animal {
+    void makeSound();  // abstract method
+}
+
+// Class that implements the interface
+class Dog implements Animal {
+    public void makeSound() {
+        System.out.println("The dog barks.");
+    }
+}
+
+// Main class to run the program
+public class Main {
+    public static void main(String[] args) {
+        Dog myDog = new Dog();  // create object of Dog
+        myDog.makeSound();      // call method
+    }
+}
+
+
+
+14.  Write a very simple java program to implement multiple interface.
+
+// First interface
+interface Animal {
+    void makeSound();
+}
+
+// Second interface
+interface Bird {
+    void fly();
+}
+
+// A class that implements both interfaces
+class Bat implements Animal, Bird {
+    public void makeSound() {
+        System.out.println("Bat makes screeching sound");
+    }
+
+    public void fly() {
+        System.out.println("Bat is flying");
+    }
+}
+
+// Main class to run the program
+public class Main {
+    public static void main(String[] args) {
+        Bat bat = new Bat();
+        bat.makeSound();
+        bat.fly();
+    }
+}
